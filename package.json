@@ -1,0 +1,18 @@
+{
+  "name": "dino-docs",
+  "version": "1.0.0",
+  "description": "Dino Proj Docs",
+  "main": "index.js",
+  "repository": "https://gitlab.botzhiyu.com/dino-proj/dino-docs.git",
+  "author": "tuuboo",
+  "license": "Apache-2.0",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:serve": "vitepress serve"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3",
+    "vitepress": "^0.22.3"
+  }
+}
