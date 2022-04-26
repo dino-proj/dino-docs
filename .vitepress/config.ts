@@ -1,8 +1,10 @@
 import { defineConfigWithTheme } from 'vitepress'
 
 import { DinoDocsThemeConfig } from './theme'
+import baseConfig from './theme/config/baseConfig'
 
 export default defineConfigWithTheme<DinoDocsThemeConfig>({
+  extends: baseConfig,
   base: "/",
   srcDir: "src",
   title: "Dinodev.cn",

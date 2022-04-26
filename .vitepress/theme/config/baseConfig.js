@@ -6,7 +6,7 @@
  */
 
 // for local-linked development
-const deps = ['@vue/theme', '@vueuse/core', 'body-scroll-lock']
+const deps = [ "body-scroll-lock"];
 
 /**
  * @type {() => Promise<import('vitepress').UserConfig>}
@@ -14,54 +14,54 @@ const deps = ['@vue/theme', '@vueuse/core', 'body-scroll-lock']
 module.exports = async () => ({
   vite: {
     ssr: {
-      noExternal: deps
+      noExternal: deps,
     },
     optimizeDeps: {
-      exclude: deps
-    }
+      exclude: deps,
+    },
   },
 
   head: [
     [
-      'link',
+      "link",
       {
-        rel: 'icon',
-        href: '/logo.svg'
-      }
+        rel: "icon",
+        href: "/logo.png",
+      },
     ],
-    ...(process.env.NODE_ENV === 'production'
+    ...(process.env.NODE_ENV === "production"
       ? [
           [
-            'link',
+            "link",
             {
-              rel: 'preload',
-              href: '/assets/inter-latin.7b37fe23.woff2',
-              as: 'font',
-              type: 'font/woff2',
-              crossorigin: 'anonymous'
-            }
-          ]
+              rel: "preload",
+              href: "/assets/inter-latin.7b37fe23.woff2",
+              as: "font",
+              type: "font/woff2",
+              crossorigin: "anonymous",
+            },
+          ],
         ]
       : []),
     [
-      'script',
+      "script",
       {},
-      require('fs').readFileSync(
-        require('path').resolve(
+      require("fs").readFileSync(
+        require("path").resolve(
           __dirname,
-          './inlined-scripts/applyDarkMode.js'
+          "./inlined-scripts/applyDarkMode.js"
         ),
-        'utf-8'
-      )
-    ]
+        "utf-8"
+      ),
+    ],
   ],
 
   markdown: {
-    highlight: await require('./highlight')()
+    highlight: await require("./highlight")(),
   },
 
   shouldPreload: (link) => {
     // make algolia chunk prefetch instead of preload
-    return !link.includes('Algolia')
-  }
-})
+    return !link.includes("Algolia");
+  },
+});
