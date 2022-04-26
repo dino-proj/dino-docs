@@ -1,17 +1,20 @@
 ---
 sidebar: false
+title: 首页
 hero:
-  image:
-  imageAlt: Dino Dev Logo
-  title: Dino Spring Framework
-  subTitle: An approachable, performant and versatile framework for building web user interfaces.
+  title: '一个开源的\n `快速开发框架`\n 基于Spring `&` Vue3'
+  subTitle: 用于快速构建前后端分离应用，支持微服务，多租户，模块化设计.
   actions:
-    - text: Get Started
-      link: /dino-spring/
+    - text: 快速开始
+      link: /start/
       class: primary
       icon: go
-    - text: Install
-      link: /guide/
+    - text: Dino Spring
+      link: /dino-spring/
+      class: plain
+    - text: Dino Vue3
+      link: /dino-vue3/
+      class: plain
 
   features:
     - title: Simplicity First

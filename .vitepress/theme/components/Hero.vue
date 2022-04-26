@@ -131,22 +131,19 @@ section {
   font-size: 16px;
   display: inline-block;
   background-color: var(--vt-c-bg-mute);
-  padding: 8px 18px;
+  padding: 8px 1em 8px 1em;
   font-weight: 500;
   border-radius: 8px;
   transition: background-color 0.5s, color 0.5s;
+   margin-right: 18px;
+}
+.actions:last-child{
+   margin-right: 0;
 }
 .actions .primary {
-  font-size: 16px;
-  display: inline-block;
-  border-radius: 8px;
-  transition: background-color 0.5s, color 0.5s;
-  position: relative;
   font-weight: 600;
   background-color: var(--vt-c-green);
   color: #fff;
-  margin-right: 18px;
-  padding: 8px 1em 8px 1em;
 }
 .dark .actions .primary {
   color: var(--vt-c-indigo);
@@ -166,22 +163,22 @@ section {
   fill: currentColor;
   transition: transform 0.2s;
 }
-.actions .get-started:hover {
+.actions .plain:hover {
   transition-duration: 0.2s;
 }
-.actions .get-started:hover .icon {
+.actions .plain:hover .icon {
   transform: translateX(2px);
 }
-.actions .get-started,
+.actions .plain,
 .actions .setup {
   color: var(--vt-c-text-code);
 }
-.actions .get-started:hover,
+.actions .plain:hover,
 .actions .setup:hover {
   background-color: var(--vt-c-gray-light-4);
   transition-duration: 0.2s;
 }
-.dark .actions .get-started:hover,
+.dark .actions .plain:hover,
 .dark .actions .setup:hover {
   background-color: var(--vt-c-gray-dark-3);
 }
