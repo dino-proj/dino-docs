@@ -15,7 +15,8 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
     appearance: true,
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/tuuboo/dino-spring" },
+      { icon: "gitee", link: "https://gitee.com/dino-proj" },
+      { icon: "github", link: "https://github.com/tuuboo" },
     ],
 
     editLink: {
@@ -30,15 +31,26 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
     },
 
     nav: [
-      { text: "Guide", link: "/", activeMatch: "^/$|^/guide/" },
       {
-        text: "Config Reference",
-        link: "/config/basics",
-        activeMatch: "^/config/",
+        text: "文档",
+        activeMatch: `^/(guide|dino-spring/guide|dino-vue3/guide|examples|dino-cli/guide)/`,
+        items: [
+          { text: "快速开始", link: "/guide/" },
+          { text: "示例教程", link: "/examples/" },
+          { text: "Dino Spring教程", link: "/dino-spring/guide/" },
+          { text: "Dino Vue3教程", link: "/dino-vue3/guide/" },
+          { text: "Dino CLI教程", link: "/dino-cli/guide/" },
+        ],
       },
       {
-        text: "Release Notes",
-        link: "https://github.com/vuejs/vitepress/releases",
+        text: "Dino Spring",
+        link: "/dino-spring/",
+        activeMatch: "^/dino-spring/",
+      },
+      {
+        text: "Dino Vue3",
+        link: "/dino-vue3/",
+        activeMatch: "^/dino-vue3/",
       },
     ],
 

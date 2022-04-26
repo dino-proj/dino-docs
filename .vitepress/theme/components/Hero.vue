@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import { computed, defineCustomElement, h, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 
 const { site, frontmatter } = useData()
-
-const showHero = computed(() => {
-  const { image, title, subTitle, action } =
-    frontmatter.value.hero
-  return image || title || subTitle || action
-})
 
 const heroTitle = computed(() => {
     let title:string = frontmatter.value.hero.title || site.value.title
