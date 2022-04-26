@@ -5,7 +5,7 @@ import { DinoDocsThemeConfig } from './theme'
 export default defineConfigWithTheme<DinoDocsThemeConfig>({
   base: "/",
   srcDir: "src",
-  title: "Dino Spring",
+  title: "Dinodev.cn",
   lang: "zh-CN",
   description: "dino-spring框架使用文档",
   lastUpdated: true,

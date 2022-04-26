@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, defineCustomElement, h, ref } from 'vue'
 import { useData, withBase } from 'vitepress'
 
 const { site, frontmatter } = useData()
@@ -10,8 +10,18 @@ const showHero = computed(() => {
   return image || title || subTitle || action
 })
 
-const heroText = computed(() => frontmatter.value.hero.title || site.value.title)
-const tagline = computed(
+const heroTitle = computed(() => {
+    let title:string = frontmatter.value.hero.title || site.value.title
+    if(title.indexOf('\\n') > -1) {
+      title = title.replace(/\\n/g, '<br/>')
+    }
+    if(title.indexOf('`') > -1) {
+      title = title.replace(/`([^`]*)`/g, '<span class="accent">$1</span>')
+    }
+    return title
+})
+
+const description = computed(
   () => frontmatter.value.hero.subTitle || site.value.description
 )
 const hero = ref(frontmatter.value.hero)
@@ -39,11 +49,9 @@ const features = computed<Feature[]>(() => {
         :alt="hero.imageAlt"
       />
     </figure>
-    <h1 class="tagline">
-      <span class="accent">{{ heroText }}</span>
-    </h1>
+    <h1 class="hero-title" v-html="heroTitle"></h1>
     <p class="description">
-      {{ tagline }}
+      {{ description }}
     </p>
     <p class="actions">
       <a :class="action.class" :href="action.link"  v-for="action in hero.actions">
@@ -77,6 +85,14 @@ const features = computed<Feature[]>(() => {
 
 </template>
 
+<style>
+html:not(.dark) .accent {
+  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
 <style scoped>
 
 section {
@@ -86,16 +102,17 @@ section {
   padding: 96px 32px;
   text-align: center;
 }
-.tagline {
-  font-size: 76px;
-  line-height: 1.25;
-  font-weight: 900;
-  letter-spacing: -1.5px;
+.hero-title {
+  font-size: 56px;
+  font-family: 'silka','sans-serif';
+  line-height: 1.4em;
+  font-weight: 800;
+  letter-spacing: +.06666667em;
   max-width: 960px;
   margin: 0px auto;
+  -webkit-font-smoothing: antialiased;
 }
-html:not(.dark) .accent,
-.dark .tagline {
+.dark .hero-title {
   background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -226,7 +243,7 @@ html:not(.dark) .accent,
   margin-bottom: 3em;
 }
 @media (max-width: 960px) {
-  .tagline {
+  .hero-title {
     font-size: 64px;
     letter-spacing: -0.5px;
   }
@@ -236,7 +253,7 @@ html:not(.dark) .accent,
   }
 }
 @media (max-width: 768px) {
-  .tagline {
+  .hero-title {
     font-size: 48px;
     letter-spacing: -0.5px;
   }
@@ -264,7 +281,7 @@ html:not(.dark) .accent,
   }
 }
 @media (max-width: 370px) {
-  .tagline {
+  .hero-title {
     font-size: 36px;
   }
 }
