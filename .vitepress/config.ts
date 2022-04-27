@@ -37,17 +37,33 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
         text: "文档",
         activeMatch: `^/(guide|dino-spring/guide|dino-vue3/guide|examples|dino-cli/guide)/`,
         items: [
-          { text: "快速开始", link: "/guide/" },
-          { text: "示例教程", link: "/examples/" },
-          { text: "Dino Spring教程", link: "/dino-spring/guide/" },
-          { text: "Dino Vue3教程", link: "/dino-vue3/guide/" },
-          { text: "Dino CLI教程", link: "/dino-cli/guide/" },
+          {
+            text: "开始",
+            items: [
+              { text: "快速开始", link: "/guide/" },
+              { text: "Dino CLI教程", link: "/dino-cli/guide/" },
+              { text: "示例教程", link: "/examples/" },
+            ],
+          },
+          {
+            text: "教程",
+            items: [
+              { text: "Dino Spring", link: "/dino-spring/guide/" },
+              { text: "Dino Spring Cloud", link: "/dino-spring/guide/" },
+              { text: "Dino Vue3", link: "/dino-vue3/guide/" },
+            ],
+          },
         ],
       },
       {
         text: "Dino Spring",
         link: "/dino-spring/",
         activeMatch: "^/dino-spring/",
+      },
+      {
+        text: "Dino Spring Cloud",
+        link: "/dino-spring-cloud/",
+        activeMatch: "^/dino-spring-cloud/",
       },
       {
         text: "Dino Vue3",
@@ -59,7 +75,6 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
     sidebar: {
       "/guide/": getGuideSidebar(),
       "/config/": getConfigSidebar(),
-      "/": getGuideSidebar(),
     },
     footer: {
       license: {
@@ -99,11 +114,11 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
 function getGuideSidebar() {
   return [
     {
-      text: "Introduction",
+      text: "开始",
       items: [
-        { text: "What is VitePress?", link: "/" },
-        { text: "Getting Started", link: "/guide/getting-started" },
-        { text: "Configuration", link: "/guide/configuration" },
+        { text: "简介", link: "/guide/" },
+        { text: "快速开始", link: "/guide/getting-started" },
+        { text: "我们的开发理念", link: "/guide/concept" },
         { text: "Asset Handling", link: "/guide/assets" },
         { text: "Markdown Extensions", link: "/guide/markdown" },
         { text: "Using Vue in Markdown", link: "/guide/using-vue" },

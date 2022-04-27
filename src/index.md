@@ -2,7 +2,7 @@
 sidebar: false
 title: 首页
 hero:
-  title: '开源免费\n`快速开发框架`\n基于Spring `&` Vue3'
+  title: '一个开源\n`快速开发框架`\n基于Spring `&` Vue3'
   subTitle: 用于快速构建前后端分离应用，支持微服务，多租户，模块化设计.
   actions:
     - text: 快速开始
