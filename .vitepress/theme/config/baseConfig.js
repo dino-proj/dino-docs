@@ -6,7 +6,7 @@
  */
 
 // for local-linked development
-const deps = [ "body-scroll-lock"];
+const deps = ["body-scroll-lock"];
 
 /**
  * @type {() => Promise<import('vitepress').UserConfig>}
@@ -22,13 +22,7 @@ module.exports = async () => ({
   },
 
   head: [
-    [
-      "link",
-      {
-        rel: "icon",
-        href: "/logo.png",
-      },
-    ],
+    [],
     ...(process.env.NODE_ENV === "production"
       ? [
           [
