@@ -17,12 +17,12 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
     appearance: true,
 
     socialLinks: [
+      { icon: "github", link: "https://github.com/dino-proj" },
       { icon: "gitee", link: "https://gitee.com/dino-proj" },
-      { icon: "github", link: "https://github.com/tuuboo" },
     ],
 
     editLink: {
-      repo: "tuuboo/dino-docs",
+      repo: "dino-proj/dino-docs",
       text: "Edit this page on GitHub",
     },
 
