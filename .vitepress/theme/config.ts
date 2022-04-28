@@ -35,7 +35,8 @@ export interface Config {
      *
      * If a branch isn't specified, it defaults to `main`.
      */
-    repo?: string;
+    repo: string;
+    branch: string;
     text?: string;
   };
 

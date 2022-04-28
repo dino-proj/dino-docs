@@ -23,6 +23,7 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
 
     editLink: {
       repo: "dino-proj/dino-docs",
+      branch: "master",
       text: "Edit this page on GitHub",
     },
 

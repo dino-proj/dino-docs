@@ -12,9 +12,9 @@ const { page, frontmatter, theme } = useData<Config>()
 const hashMatch = /#(\w+)$/
 
 const repoUrl = computed(() => {
-  const repo = theme.value.editLink?.repo || 'vuejs/docs'
-  const branch = repo.match(hashMatch)?.[1] || 'main'
-  return `https://github.com/vuejs/docs/edit/${branch}/src/${page.value.relativePath}`
+  const repo = theme.value.editLink?.repo
+  const branch = theme.value.editLink?.branch
+  return `https://github.com/${repo}/edit/${branch}/src/${page.value.relativePath}`
 })
 
 const pageClass = computed(() => {
