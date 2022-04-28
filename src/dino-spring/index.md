@@ -12,6 +12,13 @@
 不要欢动
 :::
 
+```js
+export default {
+  name: 'MyComponent',
+  // ...
+}
+```
+
 ## hem
 adf
 

@@ -27,7 +27,7 @@ hero:
 
 # 如何使用
 
-```xml
+```xml{4}
   <dependency>
     <groupId>org.dinospring</groupId>
     <artifactId>dino-spring-core</artifactId>

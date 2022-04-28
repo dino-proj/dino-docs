@@ -164,6 +164,15 @@
   content: 'vue';
 }
 
+
+.vt-doc [class~='language-xml']:before {
+  content: 'xml';
+}
+
+.vt-doc [class~='language-java']:before {
+  content: 'java';
+}
+
 .vt-doc [class~='language-html']:before {
   content: 'html';
 }

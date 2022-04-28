@@ -1,3 +1,4 @@
 @import '../../core/styles/index.css';
 @import './fonts.css';
 @import './variables.css';
+@import 'vitepress/dist/client/theme-default/styles/code.css';
