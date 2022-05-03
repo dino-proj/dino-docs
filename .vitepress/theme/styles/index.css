@@ -3,3 +3,4 @@
 @import './variables.css';
 @import './task-list.css';
 @import 'vitepress/dist/client/theme-default/styles/code.css';
+@import '@mdi/font/css/materialdesignicons.css';
