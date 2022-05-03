@@ -15,7 +15,6 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
   markdown: {
     config: (md) => {
       md.use(require("markdown-it-task-lists"));
-      md.use(require("markdown-it-code-copy"));
     },
   },
 
