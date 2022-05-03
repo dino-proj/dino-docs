@@ -12,6 +12,13 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
   description: "dino-spring框架使用文档",
   lastUpdated: true,
 
+  markdown: {
+    config: (md) => {
+      md.use(require("markdown-it-task-lists"));
+      md.use(require("markdown-it-code-copy"));
+    },
+  },
+
   themeConfig: {
     logo: "/images/logo.png",
     appearance: true,
