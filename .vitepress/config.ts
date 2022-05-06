@@ -68,14 +68,13 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
         activeMatch: "^/dino-spring/",
       },
       {
-        text: "Dino Spring Cloud",
-        link: "/dino-spring-cloud/",
-        activeMatch: "^/dino-spring-cloud/",
-      },
-      {
         text: "Dino Vue3",
         link: "/dino-vue3/",
         activeMatch: "^/dino-vue3/",
+      },
+      {
+        text: "Dino Dev Cloud",
+        link: "https://dinodev.cloud",
       },
     ],
 
