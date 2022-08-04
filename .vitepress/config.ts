@@ -88,6 +88,7 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
         link: "https://opensource.org/licenses/Apache-2.0",
       },
       copyright: `Copyright © 2021-${new Date().getFullYear()} dinodev.cn`,
+      beian: "京ICP备16008166号-7",
     },
   },
 

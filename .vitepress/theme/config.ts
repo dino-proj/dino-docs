@@ -52,6 +52,7 @@ export interface Config {
     };
 
     copyright?: string;
+    beian?: string;
   };
 
   /**
