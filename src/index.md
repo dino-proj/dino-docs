@@ -25,7 +25,7 @@ hero:
       details: VitePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
 ---
 
-# 如何使用
+## 如何使用
 
 ```xml{4}
   <dependency>

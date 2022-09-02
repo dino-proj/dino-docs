@@ -1,34 +1,33 @@
 <script lang="ts" setup>
-import { useData } from 'vitepress'
-import VPFooter from './VPFooter.vue'
+import { useData } from "vitepress";
+import VPFooter from "./VPFooter.vue";
 
-import Hero from './Hero.vue'
+import Hero from "./Hero.vue";
 
-const { frontmatter } = useData()
+const { frontmatter } = useData();
 
-frontmatter.value.aside = false
+frontmatter.value.aside = false;
 </script>
 
 <template>
   <div class="VPHeroPage">
-   <div class="container">
-  <div class="content">
-
-      <!-- A slot for customizing the entire homepage easily -->
-      <main class="home" aria-labelledby="main-title">
-        <Hero />
-        <slot name="hero" />
-      </main>
-    <main>
-      <Content  class="vt-doc" :class="pageClass"/>
-    </main>
-</div></div>
+    <div class="container">
+      <div class="content">
+        <!-- A slot for customizing the entire homepage easily -->
+        <main class="home" aria-labelledby="main-title">
+          <Hero />
+          <slot name="hero" />
+        </main>
+        <main>
+          <Content class="vt-doc" :class="pageClass" />
+        </main>
+      </div>
+    </div>
   </div>
-    <slot name="footer-before" />
-    <VPFooter />
-    <slot name="footer-after" />
+  <slot name="footer-before" />
+  <VPFooter />
+  <slot name="footer-after" />
 </template>
-
 
 <style scoped>
 .VPHeroPage {
@@ -38,7 +37,9 @@ frontmatter.value.aside = false
 .vt-doc {
   margin-bottom: 54px;
 }
-
+.vt-doc /deep/ h2 {
+  margin-top: 0px;
+}
 .content {
   margin: 0 auto;
   max-width: 688px;
