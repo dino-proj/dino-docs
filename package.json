@@ -26,6 +26,7 @@
     "@docsearch/css": "^3.0.0-alpha.41",
     "@docsearch/js": "^3.0.0-alpha.41",
     "@mdi/font": "^6.6.96",
+    "@mdi/svg": "^6.6.96",
     "@vueuse/core": "^8.2.6",
     "body-scroll-lock": "^4.0.0-beta.0",
     "markdown-it-task-lists": "^2.1.1",

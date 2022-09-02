@@ -1,6 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress'
 
 import { DinoDocsThemeConfig } from './theme'
+import { SidebarGroup } from './theme/config'
 import baseConfig from './theme/config/baseConfig'
 
 export default defineConfigWithTheme<DinoDocsThemeConfig>({
@@ -48,16 +49,16 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
             text: "开始",
             items: [
               { text: "快速开始", link: "/guide/" },
-              { text: "Dino CLI教程", link: "/dino-cli/guide/" },
+              { text: "Dino CLI工具", link: "/dino-cli/" },
               { text: "示例教程", link: "/examples/" },
             ],
           },
           {
             text: "教程",
             items: [
-              { text: "Dino Spring", link: "/dino-spring/guide/" },
-              { text: "Dino Spring Cloud", link: "/dino-spring/guide/" },
-              { text: "Dino Vue3", link: "/dino-vue3/guide/" },
+              { text: "Dino Spring", link: "/dino-spring/guide" },
+              { text: "Dino Spring Cloud", link: "/dino-spring/guide" },
+              { text: "Dino Vue3", link: "/dino-vue3/guide" },
             ],
           },
         ],
@@ -81,6 +82,7 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
     sidebar: {
       "/guide/": getGuideSidebar(),
       "/config/": getConfigSidebar(),
+      "/dino-cli/": getCliSidebar(),
     },
     footer: {
       license: {
@@ -159,6 +161,41 @@ function getConfigSidebar() {
         { text: "Homepage", link: "/config/homepage" },
         { text: "Algolia Search", link: "/config/algolia-search" },
         { text: "Carbon Ads", link: "/config/carbon-ads" },
+      ],
+    },
+  ];
+}
+
+function getCliSidebar(): SidebarGroup[] {
+  return [
+    {
+      text: "快速开始",
+      items: [
+        { text: "Home", link: "/dino-cli/index" },
+        { text: "介绍", link: "/dino-cli/guid" },
+        { text: "安装", link: "/dino-cli/install" },
+      ],
+    },
+    {
+      text: "基础",
+      items: [
+        { text: "创建工程", link: "/dino-cli/create-project" },
+        { text: "spring项目配置", link: "/dino-cli/config-dino-spring" },
+        { text: "spring代码生成", link: "/dino-cli/code-dino-spring" },
+      ],
+    },
+    {
+      text: "dino-spring模板",
+      items: [
+        { text: "模板介绍", link: "/dino-cli/dino-spring-tmpl" },
+        { text: "CRUD模块", link: "/dino-cli/dino-spring-tmpl-crud" },
+      ],
+    },
+    {
+      text: "dino-vue3模板",
+      items: [
+        { text: "模板介绍", link: "/dino-cli/dino-vue3-tmpl" },
+        { text: "CRUD模块", link: "/dino-cli/dino-vue3-tmpl-crud" },
       ],
     },
   ];

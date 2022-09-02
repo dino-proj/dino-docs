@@ -8,10 +8,6 @@
   </dependency>
 ```
 
-::: danger 警告
-不要欢动
-:::
-
 ```js
 export default {
   name: 'MyComponent',
