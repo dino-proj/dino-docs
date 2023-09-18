@@ -49,13 +49,13 @@ jobs:
       - name: Build
         run: |
           yarn docs:build
-          touch docs/.vitepress/dist/.nojekyll
+          touch .vitepress/dist/.nojekyll
       # Upload the build artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           name: docs
-          path: docs/.vitepress/dist
+          path: .vitepress/dist
 
   # Deploy job
   deploy:
