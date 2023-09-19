@@ -91,6 +91,10 @@ export default defineConfig({
       placeholder: "搜索文档",
     },
   },
+
+  sitemap: {
+    hostname: "https://dinodev.cn",
+  },
 });
 
 function getGuideSidebar(): DefaultTheme.SidebarItem[] {
