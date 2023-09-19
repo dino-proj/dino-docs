@@ -87,6 +87,14 @@ const members = [
       { icon: 'github', link: 'https://github.com/liujiehaobang' },
       { icon: 'twitter', link: 'https://twitter.com/tuuboo_bob' }
     ]
+  },{
+    avatar: 'https://github.com/MxyymY.png',
+    name: 'MxyymY',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/MxyymY' },
+      { icon: 'twitter', link: 'https://twitter.com/tuuboo_bob' }
+    ]
   },
 ]
 </script>
