@@ -38,6 +38,7 @@ export default defineConfig({
               { text: "快速开始", link: "/guide/" },
               { text: "Dino CLI工具", link: "/dino-cli/" },
               { text: "示例教程", link: "/examples/" },
+              { text: "Code Snippets", link: "/snippets/" },
             ],
           },
           {

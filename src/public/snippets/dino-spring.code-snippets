@@ -1,0 +1,140 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "entity annotion": {
+    "scope": "java",
+    "prefix": "@entity",
+    "body": [
+      "@Data",
+      "@EqualsAndHashCode(callSuper = true)",
+      "@SuperBuilder",
+      "@NoArgsConstructor",
+      "@Entity",
+      "@Table(name = \"$1\")"
+    ],
+    "description": "add annotion to entity"
+  },
+  "get Mapping": {
+    "scope": "java",
+    "prefix": "@getMapping",
+    "body": [
+      "@Operation(summary = \"$1\")",
+      "@GetMapping(\"/$2\")",
+      "public Response<$3> get$2(){",
+      "$4",
+      "return Response.success(null);",
+      "}"
+    ],
+    "description": "add GetMapping method to contoller"
+  },
+  "post Mapping": {
+    "scope": "java",
+    "prefix": "@postMapping",
+    "body": [
+      "@Operation(summary = \"$1\")",
+      "@PostMapping(\"/$2\")",
+      "public Response<$3> post$2(@RequestBody PostBody<$4> req){",
+      "$5",
+      "return Response.success(null);",
+      "}"
+    ],
+    "description": "add PostMapping method to contoller"
+  },
+  "rest annotion": {
+    "scope": "java",
+    "prefix": "@restcontroller",
+    "body": [
+      "@Tag(name = \"$1\")",
+      "@RestController",
+      "@RequestMapping(\"/v1/$2\")"
+    ],
+    "description": "add annotion to contoller"
+  },
+
+  "get Mapping Tenant": {
+    "scope": "java",
+    "prefix": "@getMappingTenant",
+    "body": [
+      "@Operation(summary = \"$1\")",
+      "@ParamTenant",
+      "@GetMapping(\"/$2\")",
+      "public Response<$3> get$2(Tenant tenant){",
+      "$4",
+      "return Response.success(null);",
+      "}"
+    ],
+    "description": "add GetMapping method to tenant contoller"
+  },
+  "post Mapping Tenant": {
+    "scope": "java",
+    "prefix": "@postMappingTenant",
+    "body": [
+      "@Operation(summary = \"$1\")",
+      "@ParamTenant",
+      "@PostMapping(\"/$2\")",
+      "public Response<$3> post$2(Tenant tenant, @RequestBody PostBody<$4> req){",
+      "$5",
+      "return Response.success(null);",
+      "}"
+    ],
+    "description": "add PostMapping method to tenant contoller"
+  },
+  "rest annotion Tenant": {
+    "scope": "java",
+    "prefix": "@restcontrollerTenant",
+    "body": [
+      "@Tag(name = \"$1\")",
+      "@RestController",
+      "@RequestMapping(\"/v1/{tenant_id:[0-9A-Z]+}/$2\")"
+    ],
+    "description": "add annotion to tenant contoller"
+  },
+
+  "schema annotion": {
+    "scope": "java",
+    "prefix": "@schema",
+    "body": ["@Schema(description = \"$1\")"],
+    "description": "add a schema annotion"
+  },
+  "column annotion": {
+    "scope": "java",
+    "prefix": "@column",
+    "body": ["@Schema(description = \"$1\")", "@Column($2)"],
+    "description": "add a column annotion"
+  },
+  "param annotion": {
+    "scope": "java",
+    "prefix": "@param",
+    "body": [
+      "@Parameter(in = ParameterIn.QUERY, name = \"$1\", required = true)"
+    ],
+    "description": "add a parameter annotion"
+  },
+  "add author info": {
+    "scope": "java",
+    "prefix": "@author",
+    "body": [
+      "/**",
+      " * $1",
+      " * @author Cody Lu",
+      " * @date $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      " */",
+      ""
+    ],
+    "description": "add author infomation"
+  }
+}
