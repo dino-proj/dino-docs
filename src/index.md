@@ -58,10 +58,6 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-<div class="VPFeatures VPHomeFeatures vp-doc"><div data-v-f5090ebe="" class="container">
-<h2 id="modules"> 内置业务模块 <a class="header-anchor" href="#modules" aria-label="Permalink to &quot;modules&quot;">&ZeroWidthSpace;</a></h2>
-</div></div>
-
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
 
@@ -70,7 +66,6 @@ const members = [
     avatar: 'https://www.github.com/dino-proj.png',
     name: 'Cody Lu',
     title: 'Creator',
-    desc: '本项目发起人',
     links: [
       { icon: 'github', link: 'https://github.com/dino-proj' },
       { icon: 'twitter', link: 'https://twitter.com/tuuboo_bob' }
@@ -79,7 +74,6 @@ const members = [
     avatar: 'https://github.com/liujiehaobang.png',
     name: 'Jack Liu',
     title: 'Developer',
-    desc: '杰出的贡献者',
     links: [
       { icon: 'github', link: 'https://github.com/liujiehaobang' },
       { icon: 'twitter', link: 'https://twitter.com/tuuboo_bob' }
@@ -87,8 +81,13 @@ const members = [
   },
 ]
 </script>
-<div class="VPFeatures VPHomeFeatures vp-doc"><div data-v-f5090ebe="" class="container">
+
+
+<div class="HomeContent vp-doc"><div class="container">
+<h2 id="modules"> 内置业务模块 <a class="header-anchor" href="#modules" aria-label="Permalink to &quot;modules&quot;">&ZeroWidthSpace;</a></h2>
+
 <h2 id="contributor"> 开发贡献者 <a class="header-anchor" href="#contributor" aria-label="Permalink to &quot;Contributor&quot;">&ZeroWidthSpace;</a></h2>
 </div></div>
+
 
 <VPTeamMembers size="medium" :members="members" />
