@@ -1,44 +1,31 @@
-import { defineConfigWithTheme } from 'vitepress'
+import { defineConfig } from "vitepress";
+import type { DefaultTheme } from "vitepress/types/default-theme";
+import markdownitTaskLists from "markdown-it-task-lists";
 
-import { DinoDocsThemeConfig } from './theme'
-import { SidebarGroup } from './theme/config'
-import baseConfig from './theme/config/baseConfig'
-
-export default defineConfigWithTheme<DinoDocsThemeConfig>({
-  extends: baseConfig,
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
   base: "/",
   srcDir: "src",
+  cacheDir: "./node_modules/.vitepress",
   title: "Dinodev.cn",
+  description: "Dino开发框架使用文档，基于Spring Boot3 & Vue3",
   lang: "zh-CN",
-  description: "dino-spring框架使用文档",
   lastUpdated: true,
 
   markdown: {
     config: (md) => {
-      md.use(require("markdown-it-task-lists"));
+      md.use(markdownitTaskLists);
+    },
+    theme: {
+      light: "github-light",
+      dark: "github-dark",
     },
   },
 
   themeConfig: {
+    // https://vitepress.dev/reference/default-theme-config
     logo: "/images/logo.png",
-    appearance: true,
-
-    socialLinks: [
-      { icon: "github", link: "https://github.com/dino-proj" },
-      { icon: "gitee", link: "https://gitee.com/dino-proj" },
-    ],
-
-    editLink: {
-      repo: "dino-proj/dino-docs",
-      branch: "master",
-      text: "Edit this page on GitHub",
-    },
-
-    algolia: {
-      appId: "JBA7HX148U",
-      apiKey: "1f524b1ac8351068f0bd4b2ad138df43",
-      indexName: "dino-dev",
-    },
+    darkModeSwitchLabel: "切换为深色模式",
 
     nav: [
       {
@@ -57,7 +44,7 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
             text: "教程",
             items: [
               { text: "Dino Spring", link: "/dino-spring/guide" },
-              { text: "Dino Spring Cloud", link: "/dino-spring/guide" },
+              { text: "Dino Spring Cloud", link: "/dino-spring-cloud/" },
               { text: "Dino Vue3", link: "/dino-vue3/guide" },
             ],
           },
@@ -84,43 +71,28 @@ export default defineConfigWithTheme<DinoDocsThemeConfig>({
       "/config/": getConfigSidebar(),
       "/dino-cli/": getCliSidebar(),
     },
+
     footer: {
-      license: {
-        text: "Apache-2.0 License",
-        link: "https://opensource.org/licenses/Apache-2.0",
-      },
-      copyright: `Copyright © 2021-${new Date().getFullYear()} dinodev.cn`,
-      beian: "京ICP备16008166号-7",
+      message: "Released under the Apache-2.0 License.",
+      copyright: "Copyright © 2022-present Dinodev.cn",
     },
-  },
 
-  vite: {
-    server: {
-      host: true,
-      fs: {
-        // for when developing with locally linked theme
-        allow: ["../.."],
-      },
-    },
-    resolve: {
-      alias: { "@theme": "/.vitepress/theme" },
-    },
-    build: {
-      minify: "terser",
-      chunkSizeWarningLimit: Infinity,
-    },
-    json: {
-      stringify: true,
-    },
-  },
+    socialLinks: [{ icon: "github", link: "https://github.com/dino-proj" }],
 
-  shouldPreload: (link) => {
-    // make algolia chunk prefetch instead of preload
-    return !link.includes("Algolia");
+    editLink: {
+      pattern: "https://github.com/dino-proj/dino-docs/edit/master/src/:path",
+    },
+
+    algolia: {
+      appId: "JBA7HX148U",
+      apiKey: "1f524b1ac8351068f0bd4b2ad138df43",
+      indexName: "dino-dev",
+      placeholder: "搜索文档",
+    },
   },
 });
 
-function getGuideSidebar() {
+function getGuideSidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "开始",
@@ -166,18 +138,20 @@ function getConfigSidebar() {
   ];
 }
 
-function getCliSidebar(): SidebarGroup[] {
+function getCliSidebar(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: "快速开始",
+      collapsed: false,
       items: [
-        { text: "Home", link: "/dino-cli/index" },
+        { text: "Home", link: "/dino-cli/" },
         { text: "介绍", link: "/dino-cli/guid" },
         { text: "安装", link: "/dino-cli/install" },
       ],
     },
     {
       text: "基础",
+      collapsed: false,
       items: [
         { text: "创建工程", link: "/dino-cli/create-project" },
         { text: "spring项目配置", link: "/dino-cli/config-dino-spring" },
@@ -186,6 +160,7 @@ function getCliSidebar(): SidebarGroup[] {
     },
     {
       text: "dino-spring模板",
+      collapsed: false,
       items: [
         { text: "模板介绍", link: "/dino-cli/dino-spring-tmpl" },
         { text: "CRUD模块", link: "/dino-cli/dino-spring-tmpl-crud" },
@@ -193,6 +168,7 @@ function getCliSidebar(): SidebarGroup[] {
     },
     {
       text: "dino-vue3模板",
+      collapsed: false,
       items: [
         { text: "模板介绍", link: "/dino-cli/dino-vue3-tmpl" },
         { text: "CRUD模块", link: "/dino-cli/dino-vue3-tmpl-crud" },

@@ -1,18 +1,16 @@
-import './styles/index.css'
+// https://vitepress.dev/guide/custom-theme
+import { h } from 'vue'
+import Theme from 'vitepress/theme'
+import './style.css'
 
-import { Theme } from 'vitepress'
-
-import VPApp from './components/VPApp.vue'
-import VPNotFound from './components/VPNotFound.vue'
-import { withConfigProvider } from './composables/config'
-
-const VPTheme: Theme = {
-  Layout: withConfigProvider(VPApp),
-  NotFound: VPNotFound,
-};
-
-export { VPTheme };
-
-export type { Config as DinoDocsThemeConfig } from "./config";
-
-export default VPTheme;
+export default {
+  extends: Theme,
+  Layout: () => {
+    return h(Theme.Layout, null, {
+      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+    })
+  },
+  enhanceApp({ app, router, siteData }) {
+    // ...
+  }
+}

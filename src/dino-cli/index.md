@@ -1,16 +1,22 @@
 ---
-sidebar: false
+layout: doc
+sidebar: true
 title: Dino Cli 首页
-hero:
-  title: '`Dino Cli`'
-  subTitle: '🛠️Dino Spring & Dino Vue3辅助开发工具'
-  actions:
-    - text: 快速开始
-      link: guid.html
-      class: primary
-      icon: go
+footer: true
 
+hero:
+  name: "Dino Cli"
+  text: "开发辅助工具"
+  tagline: "工程配置 · 代码生成"
+  image:
+    src: "/images/logo.png"
 ---
+<script setup>
+import { VPHomeHero } from 'vitepress/theme'
+</script>
+
+<VPHomeHero  style="padding-left:0" />
+
 ## 快速开始
 
 安装：

@@ -1,4 +1,4 @@
-# 安装
+# 安装 Dino Cli
 
 ## 环境准备
 Dino Cli的运行需基于Node.js，请首先在您的系统中安装Node.js。
