@@ -12,6 +12,11 @@ export default defineConfig({
   lang: "zh-CN",
   lastUpdated: true,
 
+  head: [
+    ["link", { rel: "icon", href: "/images/logo.svg" }],
+    ["meta", { name: "author", content: "Dinodev.cn" }],
+  ],
+
   markdown: {
     config: (md) => {
       md.use(markdownitTaskLists);
