@@ -1,6 +1,10 @@
 import { defineConfig } from "vitepress";
-import type { DefaultTheme } from "vitepress/types/default-theme";
 import markdownitTaskLists from "markdown-it-task-lists";
+
+import { dinoCliSidebar } from "./dino-cli-sidebar";
+import { dinoSpringSidebar } from "./dino-spring-sidebar";
+import { dinoVue3Sidebar } from "./dino-vue3-sidebar";
+import { dinoGuideSidebar } from "./dino-guide-sidebar";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -50,7 +54,6 @@ export default defineConfig({
             text: "教程",
             items: [
               { text: "Dino Spring", link: "/dino-spring/guide" },
-              { text: "Dino Spring Cloud", link: "/dino-spring-cloud/" },
               { text: "Dino Vue3", link: "/dino-vue3/guide" },
             ],
           },
@@ -73,9 +76,10 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/guide/": getGuideSidebar(),
-      "/config/": getConfigSidebar(),
-      "/dino-cli/": getCliSidebar(),
+      "/guide/": dinoGuideSidebar,
+      "/dino-cli/": dinoCliSidebar,
+      "/dino-spring/": dinoSpringSidebar,
+      "/dino-vue3/": dinoVue3Sidebar,
     },
 
     footer: {
@@ -101,88 +105,3 @@ export default defineConfig({
     hostname: "https://dinodev.cn",
   },
 });
-
-function getGuideSidebar(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: "开始",
-      items: [
-        { text: "简介", link: "/guide/" },
-        { text: "快速开始", link: "/guide/getting-started" },
-        { text: "我们的开发理念", link: "/guide/concept" },
-        { text: "Asset Handling", link: "/guide/assets" },
-        { text: "Markdown Extensions", link: "/guide/markdown" },
-        { text: "Using Vue in Markdown", link: "/guide/using-vue" },
-        { text: "Deploying", link: "/guide/deploy" },
-      ],
-    },
-    {
-      text: "Advanced",
-      items: [
-        { text: "Frontmatter", link: "/guide/frontmatter" },
-        { text: "Theming", link: "/guide/theming" },
-        { text: "API Reference", link: "/guide/api" },
-        {
-          text: "Differences from Vuepress",
-          link: "/guide/differences-from-vuepress",
-        },
-      ],
-    },
-  ];
-}
-
-function getConfigSidebar() {
-  return [
-    {
-      text: "App Config",
-      items: [{ text: "Basics", link: "/config/basics" }],
-    },
-    {
-      text: "Theme Config",
-      items: [
-        { text: "Homepage", link: "/config/homepage" },
-        { text: "Algolia Search", link: "/config/algolia-search" },
-        { text: "Carbon Ads", link: "/config/carbon-ads" },
-      ],
-    },
-  ];
-}
-
-function getCliSidebar(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: "快速开始",
-      collapsed: false,
-      items: [
-        { text: "Home", link: "/dino-cli/" },
-        { text: "介绍", link: "/dino-cli/guid" },
-        { text: "安装", link: "/dino-cli/install" },
-      ],
-    },
-    {
-      text: "基础",
-      collapsed: false,
-      items: [
-        { text: "创建工程", link: "/dino-cli/create-project" },
-        { text: "spring项目配置", link: "/dino-cli/config-dino-spring" },
-        { text: "spring代码生成", link: "/dino-cli/code-dino-spring" },
-      ],
-    },
-    {
-      text: "dino-spring模板",
-      collapsed: false,
-      items: [
-        { text: "模板介绍", link: "/dino-cli/dino-spring-tmpl" },
-        { text: "CRUD模块", link: "/dino-cli/dino-spring-tmpl-crud" },
-      ],
-    },
-    {
-      text: "dino-vue3模板",
-      collapsed: false,
-      items: [
-        { text: "模板介绍", link: "/dino-cli/dino-vue3-tmpl" },
-        { text: "CRUD模块", link: "/dino-cli/dino-vue3-tmpl-crud" },
-      ],
-    },
-  ];
-}
