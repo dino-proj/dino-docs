@@ -9,7 +9,7 @@ hero:
   text: "开发辅助工具"
   tagline: "工程配置 · 代码生成"
   image:
-    src: "/images/logo.png"
+    src: "/images/logo.svg"
 ---
 <script setup>
 import { VPHomeHero } from 'vitepress/theme'
