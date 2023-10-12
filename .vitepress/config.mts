@@ -53,8 +53,8 @@ export default defineConfig({
           {
             text: "教程",
             items: [
-              { text: "Dino Spring", link: "/dino-spring/guide" },
-              { text: "Dino Vue3", link: "/dino-vue3/guide" },
+              { text: "Dino Spring", link: "/dino-spring/" },
+              { text: "Dino Vue3", link: "/dino-vue3/" },
             ],
           },
         ],
