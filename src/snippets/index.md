@@ -5,7 +5,7 @@ layout: doc
 # Code Snippets
 代码快捷指令，帮助快速创建接口、实体、添加注解等，以下Snippets是基于[VSCode](https://code.visualstudio.com/)实现。
 
-<a href='/snippets/dino-spring.code-snippets' download>下载完成Snippets文件</a>
+<a href="/snippets/dino-spring.code-snippets" class="vp-raw" download>下载完成Snippets文件</a>
 
 ## 添加作者信息
 代码检查规则要求每个类需要包含`@author`信息，这指令能快速添加，请将`Cody Lu`替换成你的名字
