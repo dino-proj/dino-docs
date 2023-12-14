@@ -8,7 +8,7 @@ title: 首页
 hero:
   name: "Dinodev.cn"
   text: "一个开源免费的\n10X速快开发框架"
-  tagline: "基于Spring Boot 3 & Vue3，<span style='color:#e20000'>1分钟</span>开发一个功能"
+  tagline: "基于Spring Boot 3 & Vue3，<span style='color:#e20000'>10分钟</span>开发一个功能"
   image:
     src: "/images/logo.svg"
   actions:
