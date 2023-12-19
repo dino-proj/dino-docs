@@ -30,11 +30,14 @@ export const dinoVue3Sidebar: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: "vue3-cloud微服务开发",
+    text: "dino-vue3-core",
     collapsed: false,
     items: [
-      { text: "模板介绍", link: "/dino-vue3/dino-vue3-tmpl" },
-      { text: "CRUD模块", link: "/dino-vue3/dino-vue3-tmpl-crud" },
+      { text: "介绍", link: "/dino-vue3/core/" },
+      { text: "配置", link: "/dino-vue3/core/config" },
+      { text: "api", link: "/dino-vue3/core/api" },
+      { text: "auth", link: "/dino-vue3/core/auth" },
+      { text: "utils", link: "/dino-vue3/core/utils" },
     ],
   },
 ];
