@@ -22,4 +22,4 @@ import { VPHomeHero } from 'vitepress/theme'
 ## Dino Vue3介绍
 Dino-vue3是基于Vue3开发的前端框架，和Dino-spring框架配合，实现更高效的功能开发。
 
-GitHub代码(https://github.com/dino-proj/dino-vue3)
+[GitHub代码](https://github.com/dino-proj/dino-vue3)
