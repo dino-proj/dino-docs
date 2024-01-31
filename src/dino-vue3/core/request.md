@@ -49,6 +49,7 @@ export const setupApi = (options: ApiOptions) => {
 | tenant         | `() => Tenant`           | `true`   | `n/a`   | 获取租户信息函数                              |
 | authToken      | `() => AuthToken`        | `true`   | `n/a`   | 获取登录凭证函数                              |
 | autoLogin      | `() => Promise<boolean>` | `true`   | `n/a`   | 自动登录函数                                  |
+| onLoginExpired | `() => void`             | `true`   | `n/a`   | 登录过期回调函数，用于自动登录失败后的处理     |
 | defaultHeaders | `HttpHeaderType`         | `true`   | `{}`    | 接口请求默认的headers                         |
 | defaultParams  | `ApiParamType`           | `true`   | `{}`    | 接口请求默认的url参数                         |
 | proxy          | `false \| ProxyConfig`   | `true`   | `false` | 是否开启代理                                  |
