@@ -34,7 +34,7 @@ export const dinoVue3Sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: false,
     items: [
       { text: "介绍", link: "/dino-vue3/core/" },
-      { text: "配置", link: "/dino-vue3/core/config" },
+      { text: "配置", link: "/dino-vue3/core/init" },
       { text: "全局消息", link: "/dino-vue3/core/message" },
       { text: "Api配置", link: "/dino-vue3/core/request" },
       { text: "Common Types", link: "/dino-vue3/core/common" },
