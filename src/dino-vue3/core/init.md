@@ -35,3 +35,23 @@ setupMessage({
 })
 
 ```
+
+## 第二步：配置Api请求
+详细参见[Api配置](./request.md)
+```ts
+import { setupApi } from '@dino-dev/vue3-core'
+
+// 以axios为例
+import { axiosRequestProvider } from '@dino-dev/vue3-core/axios'
+
+setupApi({
+  // 配置网络请求
+  requestProvider: axiosRequestProvider,
+
+  // 配置API请求，详细参数参见`ApiConfig`模块
+  config: {
+    baseUrl: import.meta.env.VITE_API_BASE_URL,
+    // ...
+  }
+})
+```

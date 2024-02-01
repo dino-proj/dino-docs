@@ -24,13 +24,12 @@ export interface ApiOptions {
   config: ApiConfig
 }
 
-export const setupApi = (options: ApiOptions) => {
-}
+export const setupApi = (options: ApiOptions, service?:string) => ApiService
 ```
 
 - **Details**
 
-`ApiOptions`
+### `ApiOptions`
 
 | name            | type              | optional | default | description  |
 |-----------------|-------------------|----------|---------|--------------|
@@ -38,21 +37,31 @@ export const setupApi = (options: ApiOptions) => {
 | config          | `ApiConfig`       | `false`  | `n/a`   | api配置      |
 
 
-`ApiConfig` Api配置类型
+### `ApiConfig` Api配置类型
 
-| name           | type                     | optional | default | description                                   |
-|----------------|--------------------------|----------|---------|-----------------------------------------------|
-| baseUrl        | `string`                 | `false`  | `n/a`   | api请求基础路径，如：https://dinosdev.cn/api    |
-| requestTimeout | `number`                 | `true`   | `n/a`   | 接口请求超时时间(毫秒)，默认：-1，表示不设置超时 |
-| successCode    | `number \| number[]`     | `true`   | `n/a`   | 接口成功返回状态码，默认：0                     |
-| needLoginCode  | `number \| number[]`     | `true`   | `n/a`   | 需要重新登录的状态码，默认：630                 |
-| tenant         | `() => Tenant`           | `true`   | `n/a`   | 获取租户信息函数                              |
-| authToken      | `() => AuthToken`        | `true`   | `n/a`   | 获取登录凭证函数                              |
-| autoLogin      | `() => Promise<boolean>` | `true`   | `n/a`   | 自动登录函数                                  |
-| onLoginExpired | `() => void`             | `true`   | `n/a`   | 登录过期回调函数，用于自动登录失败后的处理     |
-| defaultHeaders | `HttpHeaderType`         | `true`   | `{}`    | 接口请求默认的headers                         |
-| defaultParams  | `ApiParamType`           | `true`   | `{}`    | 接口请求默认的url参数                         |
-| proxy          | `false \| ProxyConfig`   | `true`   | `false` | 是否开启代理                                  |
+| name           | type                                    | optional | default | description                                   |
+|----------------|-----------------------------------------|----------|---------|-----------------------------------------------|
+| baseUrl        | `string`                                | `false`  | `n/a`   | api请求基础路径，如：https://dinosdev.cn/api    |
+| requestTimeout | `number`                                | `true`   | `n/a`   | 接口请求超时时间(毫秒)，默认：-1，表示不设置超时 |
+| successCode    | `number \| number[]`                    | `true`   | `n/a`   | 接口成功返回状态码，默认：0                     |
+| needLoginCode  | `number \| number[]`                    | `true`   | `n/a`   | 需要重新登录的状态码，默认：630                 |
+| tenant         | `() => Tenant \| Promise<Tenant>`       | `true`   | `n/a`   | 获取租户信息函数                              |
+| authToken      | `() => AuthToken \| Promise<AuthToken>` | `true`   | `n/a`   | 获取登录凭证函数                              |
+| autoLogin      | `() => Promise<boolean>`                | `true`   | `n/a`   | 自动登录函数                                  |
+| onLoginExpired | `() => void`                            | `true`   | `n/a`   | 登录过期回调函数，用于自动登录失败后的处理     |
+| defaultHeaders | `HttpHeaderType`                        | `true`   | `{}`    | 接口请求默认的headers                         |
+| defaultParams  | `ApiParamType`                          | `true`   | `{}`    | 接口请求默认的url参数                         |
+| proxy          | `false \| ProxyConfig`                  | `true`   | `false` | 是否开启代理                                  |
+
+### `ApiService` ApiService接口
+
+| name         | type                                                                                                                                                             | optional | default | description  |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|--------------|
+| serviceName  | `string`                                                                                                                                                         | `false`  | `n/a`   | 服务名称     |
+| apiConfig    | `ApiConfig`                                                                                                                                                      | `false`  | `n/a`   | Api配置      |
+| interceptors | `{ readonly request: InterceptorManager<RequestConfig<any>, { apiService: ApiService; }>; readonly response: InterceptorManager<HttpResponse<any>, { ...; }>; }` | `false`  | `n/a`   | 拦截器管理器 |
+| request      | `HttpRequest`                                                                                                                                                    | `false`  | `n/a`   | 请求函数     |
+
 
 
 ## 使用Axios
@@ -79,6 +88,7 @@ setupApi({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
     authToken: useTokenStore().getToken,
     autoLogin: gotoLoginPage
+    // ...
   }
 })
 
@@ -175,4 +185,95 @@ import { RequestProvider } from '@dino-dev/vue3-core'
     })
   })
 }
+```
+
+## 使用拦截器
+可以使用`interceptors`配置拦截器，拦截器用于在请求前或请求后做一些处理，例如：添加请求头、添加请求参数、添加请求体、添加响应头、添加响应体等。
+
+**添加拦截器**
+```ts
+// 1. 通过`useApi`或`setupApi`可以获取ApiService的实例
+const apiService = useApi()
+// or
+const apiService = setupApi({/* ... */})
+
+// 类型定义如下：
+export interface ApiService {
+  // ...
+  /**
+   * 拦截器管理器
+   */
+  readonly interceptors: {
+    readonly request: InterceptorManager<RequestConfig, { apiService: ApiService }>
+    readonly response: InterceptorManager<HttpResponse, { requestConfig: RequestConfig; apiService: ApiService }>
+  }
+  // ...
+}
+
+// 2. 拦截器管理器，以添加Request拦截器为例
+const myInterceptorCancle = apiService.interceptors.request.use((config: RequestConfig, { apiService }) => {
+  // ...
+  return config
+})
+
+// 如果要取消拦截器，可以调用`myInterceptorCancle`函数
+myInterceptorCancle()
+
+```
+
+**内置的request拦截器有：**
+- 添加默认baseUrl拦截器
+- 添加默认params拦截器
+- 添加默认headers拦截器
+- 添加请求formData数据转换拦截器
+- 添加默认请求超时拦截器
+- 添加默认代理拦截器
+- tenant_id参数拦截器
+- auth token拦截器
+
+**内置的response拦截器有：**
+- 成功状态码拦截器
+- 自动登录拦截器
+- 默认错误提示拦截器
+
+## 更多用法
+
+### 当Token过期时，使用自动登录函数自动登录
+需要使用`autoLogin`配置自动登录函数，用于自动登录处理
+
+```ts
+import { setupApi } from '@dino-dev/vue3-core'
+
+const refreshTokenApi = definePostApi<RefreshTokenRequest, RefreshTokenResponse>('/auth/refreshToken')
+
+setupApi({
+  // ...
+  config: {
+    // ...
+    autoLogin: () => {
+      // 自动登录
+      return refreshTokenApi()
+    }
+  }
+})
+
+```
+
+### 当登录过期时，自动跳转到登录页面
+需要使用`onLoginExpired`配置登录过期回调函数，用于自动登录失败后的处理
+
+```ts
+import { setupApi } from '@dino-dev/vue3-core'
+
+setupApi({
+  // ...
+  config: {
+    // ...
+    onLoginExpired: () => {
+      // 跳转到登录页面
+      gotoLoginPage()
+    }
+  }
+})
+
 ```
