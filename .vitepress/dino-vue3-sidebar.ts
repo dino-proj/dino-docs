@@ -35,10 +35,10 @@ export const dinoVue3Sidebar: DefaultTheme.SidebarItem[] = [
     items: [
       { text: "介绍", link: "/dino-vue3/core/" },
       { text: "配置", link: "/dino-vue3/core/init" },
-      { text: "全局消息", link: "/dino-vue3/core/message" },
-      { text: "Api配置", link: "/dino-vue3/core/request" },
+      { text: "配置消息", link: "/dino-vue3/core/message" },
+      { text: "配置Api", link: "/dino-vue3/core/request" },
       { text: "Common Types", link: "/dino-vue3/core/common" },
-      { text: "Api", link: "/dino-vue3/core/api" },
+      { text: "使用Api", link: "/dino-vue3/core/api" },
       { text: "Auth", link: "/dino-vue3/core/auth" },
       { text: "File/OSS", link: "/dino-vue3/core/file" },
       { text: "Validator", link: "/dino-vue3/core/validator" },
