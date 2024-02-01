@@ -236,6 +236,28 @@ myInterceptorCancle()
 - 自动登录拦截器
 - 默认错误提示拦截器
 
+## 配置多个微服务
+后端请求服务可能会有多个，例如：用户服务、订单服务、商品服务等，这些服务可能会有不同的baseUrl、不同的请求头、不同的请求参数等，因此，可以通过微服务来管理这些服务。
+
+**添加微服务**
+```ts
+// 1. 通过`setupApi`配置每个微服务的ApiService的实例
+// 默认API服务
+const apiService = setupApi({/* ... */})
+// 用户微服务
+const userApiService = setupApi({/* ... */}, 'user')
+// 订单微服务
+const orderApiService = setupApi({/* ... */}, 'order')
+
+// 使用默认API服务
+const apiService = useApi()
+// 使用用户微服务
+const userApiService = useApi('user')
+// 使用订单微服务
+const orderApiService = useApi('order')
+
+```
+
 ## 更多用法
 
 ### 当Token过期时，使用自动登录函数自动登录
