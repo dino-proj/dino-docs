@@ -3,13 +3,21 @@
  SPDX-License-Identifier: Apache-2.0
 -->
 
-# 配置
+# 快速开始
 在使用dino-vue3-core前，需要对其进行配置
 
-在main.ts中添加如下代码，来配置dino-vue3-core
+## 引入dino-vue3-core包
+```shell
+npm install  @dino-dev/vue3-core
+# OR
+yarn add @dino-dev/vue3-core
+
+```
 
 ## 第一步：配置全局消息【可选】
-详细参见[全局消息](./message.md)
+详细参见[配置消息](./message.md)
+
+在main.ts中添加如下代码：
 ```ts
 import { setupMessage } from '@dino-dev/vue3-core'
 
@@ -37,7 +45,9 @@ setupMessage({
 ```
 
 ## 第二步：配置Api请求
-详细参见[Api配置](./request.md)
+详细参见[配置Api](./request.md)
+
+在main.ts中添加如下代码：
 ```ts
 import { setupApi } from '@dino-dev/vue3-core'
 
